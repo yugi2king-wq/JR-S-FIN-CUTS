@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Info - JR’s Fin Cuts</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+ <div class="header">
+  <div class="header-left">
+    <img src="images/logo.png" class="logo">
+    <div class="title-box">
+      <h1>JR’s Fin Cuts</h1>
+      <p class="tagline">Fresh Seafood</p>
+    </div>
+  </div>
+</div>
+
+  <!-- CONTENT -->
+  <div class="content">
+
+    <!-- CONTACT SECTION -->
+    <div class="card info-card">
+
+      <h2>Contact Us</h2>
+
+      <button class="contact-btn" onclick="openWhatsApp()">📲 WhatsApp</button>
+      <button class="contact-btn" onclick="callNow()">📞 Call</button>
+      <button class="contact-btn" onclick="openInstagram()">📷 Instagram</button>
+
+      <p class="contact-text">📧 jrsfincuts@gmail.com</p>
+      <p class="contact-text">📞 +91 70934 70823</p>
+
+    </div>
+
+    <!-- ABOUT SECTION -->
+    <div class="card info-card">
+
+      <h2>About Us</h2>
+
+      <p>
+        At JR’s Fin Cuts, we are committed to delivering fresh, hygienic, and high-quality seafood directly to your doorstep.
+        We specialize in providing clean, neatly cut, and ready-to-cook fish and seafood, making your cooking experince easier and healthier.
+      </p>
+      <p>
+        At JR’s Fin Cuts was started with a simple goal - to slove the problem of unhygienic and inconsistent seafood quality in the local market.
+        We noticed that customers often struggled to find fresh, properly cleaned fish they could trust.
+      </p>
+      <p>
+        That's why we built At JR’s Fin Cuts - a brand focused on quality, cleanliness, and customer satisfaction.
+      </p>
+
+      <h3>Our Mission</h3>
+      <p>
+        Is To provide safe, fresh, and premium seafood with the highest standards of hygiene and convenience.
+      </p>
+
+      <h3>Our Vision</h3>
+      <p>
+        To become a trusted seafood brand known for quality, transparency, and customer-first service.
+      </p>
+
+      <h3>What We Offer</h3>
+      <p>
+        We provide a wide range of seafood,<br>including:<br>
+        Fresh Fish (Tilapia, Korameenu, and more)<br>
+        Prawns<br>
+        Crabs<br>Boneless & ready-to-cook cuts<br>
+        Each product is carefuly selected, cleaned, and packed to maintain freshness and taste.
+      </p>
+
+    </div>
+
+  </div>
+
+  <!-- BOTTOM NAV -->
+  <div class="bottom-nav">
+  <a href="index.html" class="active">
+    <span class="material-icons">home</span><br>Home
+  </a>
+  <a href="cart.html">
+  <span class="material-icons">shopping_cart</span>
+  <span id="cart-count" class="badge">0</span>
+  <br>Cart
+</a>
+  <a href="info.html">
+    <span class="material-icons">info</span><br>Info
+  </a>
+</div>
+
+  <!-- TOAST -->
+  <div id="toast"></div>
+
+  <!-- SCRIPT -->
+  <script src="script.js"></script>
+
+</body>
+</html>

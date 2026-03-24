@@ -1,0 +1,428 @@
+/* =========================
+   GLOBAL RESET
+========================= */
+* {
+  box-sizing: border-box;
+}
+
+/* =========================
+   BASE SYSTEM
+========================= */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom, #f7fbff, #eef6fb);
+  padding-bottom: 90px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.content {
+  padding: 16px;
+  max-width: 420px;
+  margin: auto;
+}
+
+/* =========================
+   HEADER (GLASS PREMIUM)
+========================= */
+.header {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+
+  background: linear-gradient(135deg, #ffffff, #f0f8ff);
+  backdrop-filter: blur(10px);
+
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 4px 16px rgba(0,119,182,0.12);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  margin-right: 12px;
+
+  background: white;
+  padding: 4px;
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.title-box h1 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+  color: #0077B6;
+  letter-spacing: 0.3px;
+}
+
+.tagline {
+  margin: 0;
+  font-size: 11px;
+  color: #666;
+  opacity: 0.8;
+}
+
+/* =========================
+   BANNER
+========================= */
+.banner {
+  background: linear-gradient(90deg, #0096C7, #00B4D8);
+  color: white;
+  padding: 12px;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 15px;
+  font-weight: 500;
+  box-shadow: 0 4px 14px rgba(0,150,199,0.25);
+}
+
+/* =========================
+   TITLES
+========================= */
+.section-title {
+  margin: 14px 6px;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+/* =========================
+   GRID SYSTEM
+========================= */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+/* =========================
+   PRODUCT CARD
+========================= */
+.card {
+  background: linear-gradient(180deg, #ffffff, #fbfdff);
+  border-radius: 16px;
+  padding: 12px;
+
+  border: 1px solid rgba(0,0,0,0.03);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+
+  transition: all 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+}
+
+/* =========================
+   IMAGE SLIDER
+========================= */
+.slider {
+  cursor: pointer;
+}
+
+.slide {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 12px;
+  display: none;
+  background: #eee;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.slide.active {
+  display: block;
+}
+
+.dots {
+  text-align: center;
+  margin: 6px 0;
+}
+
+.dot {
+  height: 6px;
+  width: 6px;
+  background: #ccc;
+  border-radius: 50%;
+  margin: 3px;
+  display: inline-block;
+}
+
+.dot.active {
+  background: #0077B6;
+}
+
+/* =========================
+   TEXT SYSTEM
+========================= */
+.card h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 6px 0 2px;
+}
+
+.local {
+  font-size: 11px;
+  color: #888;
+}
+
+.price {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0077B6;
+  margin: 4px 0;
+}
+
+.desc {
+  font-size: 11px;
+  color: #666;
+  line-height: 1.3;
+}
+
+/* =========================
+   QUANTITY
+========================= */
+.qty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 8px 0;
+}
+
+.qty button {
+  background: #0077B6;
+  color: white;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 16px;
+}
+
+.qty input {
+  width: 55px;
+  text-align: center;
+  margin: 0 6px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  padding: 4px;
+  font-weight: 500;
+  outline: none;
+}
+
+.qty input:focus {
+  border-color: #0077B6;
+}
+
+/* =========================
+   BUTTON SYSTEM
+========================= */
+button {
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:hover {
+  opacity: 0.95;
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+.add-btn {
+  background: linear-gradient(90deg, #0077B6, #00B4D8);
+  color: white;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  box-shadow: 0 4px 14px rgba(0,119,182,0.25);
+}
+
+.add-btn:active {
+  transform: scale(0.95);
+}
+
+/* =========================
+   CART
+========================= */
+.cart-item {
+  background: white;
+  width: 92%;
+  margin: 12px auto;
+  padding: 14px;
+  border-radius: 16px;
+
+  border: 1px solid rgba(0,0,0,0.04);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+
+  transition: all 0.2s ease;
+}
+
+.cart-item:hover {
+  transform: scale(1.01);
+}
+
+.cart-row {
+  display: flex;
+  gap: 12px;
+}
+
+.cart-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+}
+
+.cart-details {
+  flex: 1;
+}
+
+.item-total {
+  font-weight: 600;
+}
+
+#orderBtn {
+  background: linear-gradient(90deg, #2ECC71, #27AE60);
+  color: white;
+  border: none;
+  padding: 16px;
+  width: 90%;
+  border-radius: 14px;
+  font-size: 16px;
+  margin-top: 10px;
+  box-shadow: 0 6px 18px rgba(46,204,113,0.3);
+}
+
+/* =========================
+   INFO PAGE
+========================= */
+.info-card {
+  width: 92%;
+  margin: 12px auto;
+  padding: 14px;
+  border-radius: 16px;
+  background: white;
+}
+
+.contact-btn {
+  background: #0096C7;
+  color: white;
+  border: none;
+  padding: 12px;
+  width: 100%;
+  margin: 6px 0;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: white;
+  display: flex;
+  justify-content: space-around;
+  padding: 12px 0;
+  border-top: 1px solid rgba(0,0,0,0.06);
+}
+
+.bottom-nav a {
+  text-decoration: none;
+  color: #888;
+  font-size: 12px;
+  text-align: center;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.bottom-nav a.active {
+  color: #0077B6;
+  font-weight: 600;
+  transform: scale(1.1);
+}
+
+/* =========================
+   ICONS + BADGE
+========================= */
+.material-icons {
+  font-size: 22px;
+}
+
+.badge {
+  position: absolute;
+  top: 2px;
+  right: 10px;
+  background: #ff4d4f;
+  color: white;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 50%;
+}
+
+/* =========================
+   TOAST
+========================= */
+#toast {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.85);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  display: none;
+  font-size: 13px;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+.card, .cart-item {
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   ONLY FIX ADDED (CART BUTTON CENTER)
+========================= */
+#orderBtn {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

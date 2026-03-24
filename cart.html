@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cart - JR’s Fin Cuts</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+ <div class="header">
+  <div class="header-left">
+    <img src="images/logo.png" class="logo">
+    <div class="title-box">
+      <h1>JR’s Fin Cuts</h1>
+      <p class="tagline">Fresh Seafood</p>
+    </div>
+  </div>
+</div>
+
+  <!-- CONTENT -->
+  <div class="content">
+
+    <!-- CART ITEMS -->
+    <div id="cart-container"></div>
+
+    <!-- SUMMARY -->
+    <div class="cart-summary">
+      <h2 id="total"></h2>
+      <button id="orderBtn">📲 Order via WhatsApp</button>
+    </div>
+
+  </div>
+
+  <!-- BOTTOM NAV -->
+  <div class="bottom-nav">
+  <a href="index.html" class="active">
+    <span class="material-icons">home</span><br>Home
+  </a>
+  <a href="cart.html">
+  <span class="material-icons">shopping_cart</span>
+  <span id="cart-count" class="badge">0</span>
+  <br>Cart
+</a>
+  <a href="info.html">
+    <span class="material-icons">info</span><br>Info
+  </a>
+</div>
+
+  <!-- TOAST -->
+  <div id="toast"></div>
+
+  <!-- SCRIPT -->
+  <script src="script.js"></script>
+
+</body>
+</html>
