@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <button onclick="goBack()" style="margin-right:10px;">←</button>
+  <h2 id="product-name"></h2>
+</div>
+
+<div class="content">
+
+  <!-- IMAGE SLIDER -->
+  <div class="product-slider">
+    <img id="img1" class="slide active">
+    <img id="img2" class="slide">
+    <img id="img3" class="slide">
+  </div>
+
+  <!-- DETAILS -->
+  <div class="product-info">
+    <p id="local-name"></p>
+    <p id="price"></p>
+    <p id="desc"></p>
+  </div>
+
+  <!-- QTY -->
+  <div class="qty">
+    <button onclick="changeQty(-0.5)">-</button>
+    <input type="number" id="qty" value="0.5" min="0.5" step="0.5">
+    <button onclick="changeQty(0.5)">+</button>
+  </div>
+
+  <!-- ADD -->
+  <button class="add-btn" onclick="addProduct()">Add to Cart</button>
+
+  <!-- MORE PRODUCTS -->
+  <h3 style="margin-top:30px;">More Products</h3>
+
+  <div class="more-products">
+
+    <div class="mini-card" onclick="openProduct('murrel')">
+      <img src="images/products/korameenu-1.jpg">
+      <p>Murrel</p>
+    </div>
+
+    <div class="mini-card" onclick="openProduct('tilapia')">
+      <img src="images/products/tilapia-1.jpg">
+      <p>Tilapia</p>
+    </div>
+
+    <div class="mini-card" onclick="openProduct('prawns')">
+      <img src="images/products/prawns-1.jpg">
+      <p>Prawns</p>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+
+// ============================
+// BACK
+// ============================
+
+function goBack() {
+  window.history.back();
+}
+
+// ============================
+// PRODUCT DATA
+// ============================
+
+const products = {
+  murrel: {
+    name: "Murrel",
+    local: "Korameenu",
+    price: 600,
+    display: "₹600 (1kg)",
+    desc: "Fresh and hygienic Murrel fish, perfect for curry and fry.",
+    images: [
+      "images/products/korameenu-1.jpg",
+      "images/products/korameenu-2.jpg",
+      "images/products/korameenu-3.jpg"
+    ]
+  },
+  tilapia: {
+    name: "Tilapia",
+    local: "Pilot Fish",
+    price: 400,
+    display: "₹400 (1kg)",
+    desc: "Cleaned and ready-to-cook Tilapia, soft and tasty.",
+    images: [
+      "images/products/tilapia-1.jpg",
+      "images/products/tilapia-2.jpg",
+      "images/products/tilapia-3.jpg"
+    ]
+  },
+  prawns: {
+    name: "Prawns",
+    local: "Royyalu",
+    price: 600,
+    display: "₹600 (500g)",
+    desc: "Premium quality fresh prawns, cleaned and ready.",
+    images: [
+      "images/products/prawns-1.jpg",
+      "images/products/prawns-2.jpg",
+      "images/products/prawns-3.jpg"
+    ]
+  }
+};
+
+// ============================
+// LOAD PRODUCT
+// ============================
+
+const urlParams = new URLSearchParams(window.location.search);
+const id = urlParams.get("id");
+
+const product = products[id];
+
+if (product) {
+  document.getElementById("product-name").innerText = product.name;
+  document.getElementById("local-name").innerText = product.local;
+  document.getElementById("price").innerText = product.display;
+  document.getElementById("desc").innerText = product.desc;
+
+  document.getElementById("img1").src = product.images[0];
+  document.getElementById("img2").src = product.images[1];
+  document.getElementById("img3").src = product.images[2];
+}
+
+// ============================
+// SWITCH PRODUCT
+// ============================
+
+function openProduct(id) {
+  window.location.href = "product.html?id=" + id;
+}
+
+// ============================
+// QTY
+// ============================
+
+function changeQty(val) {
+  let input = document.getElementById("qty");
+  let qty = parseFloat(input.value);
+
+  qty += val;
+
+  if (qty < 0.5) qty = 0.5;
+
+  input.value = qty.toFixed(1);
+}
+
+// ============================
+// ADD TO CART
+// ============================
+
+function addProduct() {
+  let qty = parseFloat(document.getElementById("qty").value);
+
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  let existing = cart.find(item => item.name === product.name);
+
+  if (existing) {
+    existing.qty += qty;
+  } else {
+    cart.push({
+      name: product.name,
+      local: product.local,
+      price: product.price,
+      qty: qty,
+      img: product.images[0]
+    });
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  alert("Added to cart");
+}
+
+</script>
+
+</body>
+</html>

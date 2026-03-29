@@ -10,8 +10,7 @@
 
 <body>
 
-  <!-- HEADER -->
-  <div class="header">
+<div class="header">
   <div class="header-left">
     <img src="images/logo.png" class="logo">
     <div class="title-box">
@@ -21,130 +20,106 @@
   </div>
 </div>
 
-  <!-- CONTENT -->
-  <div class="content">
+<div class="content">
 
-    <!-- Banner -->
-    <div class="banner">
-      📅 Next-day delivery available
+  <div class="banner">
+    📅 Next-day delivery available
+  </div>
+
+  <h2 class="section-title">Today’s Fresh Picks</h2>
+
+  <div class="container">
+
+    <!-- Murrel -->
+    <div class="card">
+
+      <a href="product.html?id=murrel">
+        <img src="images/products/korameenu-1.jpg" class="single-img">
+      </a>
+
+      <h3>Murrel</h3>
+      <p class="local">Korameenu</p>
+
+      <p class="price">₹600 (1kg)</p>
+      <p class="desc">Fresh and hygienic seafood</p>
+
+      <div class="qty">
+        <button class="minus">-</button>
+        <input type="number" value="0.5" min="0.5" step="0.5">
+        <button class="plus">+</button>
+      </div>
+
+      <button class="add-btn">Add to Cart</button>
+
     </div>
 
-    <!-- Section Title -->
-    <h2 class="section-title">Today’s Fresh Picks</h2>
+    <!-- Tilapia -->
+    <div class="card">
 
-    <!-- PRODUCT LIST -->
-    <div class="container">
+      <a href="product.html?id=tilapia">
+        <img src="images/products/tilapia-1.jpg" class="single-img">
+      </a>
 
-      <!-- PRODUCT 1 -->
-      <div class="card">
+      <h3>Tilapia</h3>
+      <p class="local">Pilot Fish</p>
 
-        <div class="slider">
-          <img src="images/products/logo.jpg" class="slide active">
-          <img src="images/products/logo.jpg" class="slide">
-        </div>
+      <p class="price">₹400 (1kg)</p>
+      <p class="desc">Cleaned and ready to cook</p>
 
-        <div class="dots">
-          <span class="dot active"></span>
-          <span class="dot"></span>
-        </div>
-
-        <h3>Fresh Catch 1</h3>
-        <p class="local">Local Fish</p>
-
-        <p class="price">₹300/kg</p>
-        <p class="desc">Fresh and hygienic seafood</p>
-
-        <div class="qty">
-          <button class="minus">-</button>
-          <input type="number" value="0.5" min="0.5" step="0.5">
-          <button class="plus">+</button>
-        </div>
-
-        <button class="add-btn">Add to Cart</button>
-
+      <div class="qty">
+        <button class="minus">-</button>
+        <input type="number" value="0.5" min="0.5" step="0.5">
+        <button class="plus">+</button>
       </div>
 
-      <!-- PRODUCT 2 -->
-      <div class="card">
+      <button class="add-btn">Add to Cart</button>
 
-        <div class="slider">
-          <img src="images/products/logo.jpg" class="slide active">
-          <img src="images/products/logo.jpg" class="slide">
-        </div>
+    </div>
 
-        <div class="dots">
-          <span class="dot active"></span>
-          <span class="dot"></span>
-        </div>
+    <!-- Prawns -->
+    <div class="card">
 
-        <h3>Fresh Catch 2</h3>
-        <p class="local">Local Fish</p>
+      <a href="product.html?id=prawns">
+        <img src="images/products/prawns-1.jpg" class="single-img">
+      </a>
 
-        <p class="price">₹400/kg</p>
-        <p class="desc">Cleaned and ready to cook</p>
+      <h3>Prawns</h3>
+      <p class="local">Royyalu</p>
 
-        <div class="qty">
-          <button class="minus">-</button>
-          <input type="number" value="0.5" min="0.5" step="0.5">
-          <button class="plus">+</button>
-        </div>
+      <p class="price">₹600 (500g)</p>
+      <p class="desc">Premium quality seafood</p>
 
-        <button class="add-btn">Add to Cart</button>
-
+      <div class="qty">
+        <button class="minus">-</button>
+        <input type="number" value="0.5" min="0.5" step="0.5">
+        <button class="plus">+</button>
       </div>
 
-      <!-- PRODUCT 3 -->
-      <div class="card">
-
-        <div class="slider">
-          <img src="images/products/logo.jpg" class="slide active">
-          <img src="images/products/logo.jpg" class="slide">
-        </div>
-
-        <div class="dots">
-          <span class="dot active"></span>
-          <span class="dot"></span>
-        </div>
-
-        <h3>Fresh Catch 3</h3>
-        <p class="local">Local Fish</p>
-
-        <p class="price">₹500/kg</p>
-        <p class="desc">Premium quality seafood</p>
-
-        <div class="qty">
-          <button class="minus">-</button>
-          <input type="number" value="0.5" min="0.5" step="0.5">
-          <button class="plus">+</button>
-        </div>
-
-        <button class="add-btn">Add to Cart</button>
-
-      </div>
+      <button class="add-btn">Add to Cart</button>
 
     </div>
 
   </div>
 
-  <!-- BOTTOM NAV -->
-  <div class="bottom-nav">
+</div>
+
+<div class="bottom-nav">
   <a href="index.html" class="active">
     <span class="material-icons">home</span><br>Home
   </a>
   <a href="cart.html">
-  <span class="material-icons">shopping_cart</span>
-  <span id="cart-count" class="badge">0</span>
-  <br>Cart
-</a>
+    <span class="material-icons">shopping_cart</span>
+    <span id="cart-count" class="badge">0</span>
+    <br>Cart
+  </a>
   <a href="info.html">
     <span class="material-icons">info</span><br>Info
   </a>
 </div>
 
-  <!-- TOAST -->
-  <div id="toast"></div>
+<div id="toast"></div>
 
-  <script src="script.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>

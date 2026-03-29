@@ -27,12 +27,12 @@ function showToast(msg) {
 }
 
 // ============================
-// CART COUNT (FIXED)
+// CART COUNT
 // ============================
 
 function updateCartCount() {
   let cart = getCart();
-  let count = cart.length;   // FIXED (not qty sum)
+  let count = cart.length;
 
   let badge = document.getElementById("cart-count");
   if (badge) {
@@ -41,10 +41,23 @@ function updateCartCount() {
 }
 
 // ============================
+// PRODUCT PRICE FIX
+// ============================
+
+function getProductPrice(name) {
+  if (name === "Murrel") return 600;
+  if (name === "Tilapia") return 400;
+  if (name === "Prawns") return 600;
+  return null;
+}
+
+// ============================
 // ADD TO CART
 // ============================
 
 function addToCart(product) {
+  if (!product || !product.name) return;
+
   let cart = getCart();
 
   let existing = cart.findIndex(item => item.name === product.name);
@@ -56,7 +69,7 @@ function addToCart(product) {
   }
 
   saveCart(cart);
-  updateCartCount();   // FIXED
+  updateCartCount();
   showToast("Added to Cart ✓");
 }
 
@@ -78,23 +91,42 @@ function decrease(input) {
 }
 
 // ============================
-// MAIN INIT (MERGED)
+// PRICE CALCULATION
+// ============================
+
+function getItemTotal(item) {
+  if (!item || !item.name) return 0;
+
+  if (item.name === "Prawns") {
+    return item.price * (item.qty / 0.5);
+  } else {
+    return item.price * item.qty;
+  }
+}
+
+// ============================
+// MAIN INIT
 // ============================
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  // ============================
-  // HOME PAGE SETUP
-  // ============================
-
   document.querySelectorAll(".card").forEach(card => {
 
-    const name = card.querySelector("h3").innerText;
-    const local = card.querySelector(".local").innerText;
-    const priceText = card.querySelector(".price").innerText;
-    const price = parseInt(priceText.replace(/[^\d]/g, ""));
-
+    const nameEl = card.querySelector("h3");
+    const localEl = card.querySelector(".local");
     const input = card.querySelector("input");
+
+    // 🔴 IMPORTANT FIX
+    if (!nameEl || !localEl || !input) return;
+
+    const name = nameEl.innerText.trim();
+    const local = localEl.innerText.trim();
+
+    if (!name || name === "undefined") return;
+
+    const price = getProductPrice(name);
+
+    if (price === null) return;
 
     const minusBtn = card.querySelector(".minus");
     const plusBtn = card.querySelector(".plus");
@@ -119,7 +151,7 @@ document.addEventListener("DOMContentLoaded", () => {
           local,
           price,
           qty,
-          img: card.querySelector(".slide").src
+          img: card.querySelector(".slide")?.src || ""
         };
 
         addToCart(product);
@@ -128,10 +160,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   });
 
-  // ============================
-  // IMAGE SLIDER (MERGED FIX)
-  // ============================
-
+  // IMAGE SLIDER
   document.querySelectorAll(".card").forEach(card => {
 
     let slides = card.querySelectorAll(".slide");
@@ -159,10 +188,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   });
 
-  // ============================
   // CART INIT
-  // ============================
-
   renderCart();
   updateCartCount();
 
@@ -182,7 +208,7 @@ document.addEventListener("DOMContentLoaded", () => {
       let total = 0;
 
       cart.forEach(item => {
-        const itemTotal = item.price * item.qty;
+        const itemTotal = getItemTotal(item);
         total += itemTotal;
 
         message += `${item.name} (${item.local}) - ${item.qty}kg - ₹${itemTotal}\n`;
@@ -202,7 +228,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // ============================
-// CART RENDER (COMPACT)
+// CART RENDER
 // ============================
 
 function renderCart() {
@@ -226,7 +252,9 @@ function renderCart() {
 
   cart.forEach((item, index) => {
 
-    const itemTotal = item.price * item.qty;
+    if (!item || !item.name) return;
+
+    const itemTotal = getItemTotal(item);
     total += itemTotal;
 
     const div = document.createElement("div");
@@ -240,7 +268,7 @@ function renderCart() {
         <div class="cart-details">
           <h3>${item.name}</h3>
           <p class="local">${item.local}</p>
-          <p>₹${item.price}/kg</p>
+          <p>₹${item.price}</p>
 
           <div class="qty">
             <button onclick="updateQty(${index}, -0.5)">-</button>
@@ -316,5 +344,5 @@ function callNow() {
 }
 
 function openInstagram() {
-  window.open("https://instagram.com");
+  window.open("https://www.instagram.com/jrs_fincuts");
 }
