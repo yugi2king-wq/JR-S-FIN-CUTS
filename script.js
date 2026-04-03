@@ -312,8 +312,8 @@ document.addEventListener("DOMContentLoaded", () => {
     murrel: {
       name: "Murrel",
       local: "Korameenu",
-      price: 600,
-      display: "₹600 (1kg)",
+      price: 650,
+      display: "₹650 (1kg)",
       desc: "Fresh and hygienic Murrel fish, perfect for curry and fry.",
       images: [
         "images/products/koramennu.png",
